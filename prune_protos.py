@@ -1,7 +1,7 @@
 import os
 import glob
 
-TFS_PATH = "tensorflow_serving/apis"
+TFS_PATH = "tensorflow_serving"
 
 def main():
     deps = _get_all_deps()
@@ -9,11 +9,14 @@ def main():
 
 
 def _get_all_deps():
-    files = os.listdir(TFS_PATH)
+    files = (
+        [os.path.join(TFS_PATH, "apis", item) for item in os.listdir(os.path.join(TFS_PATH, "apis"))]
+        + [os.path.join(TFS_PATH, "config", item) for item in os.listdir(os.path.join(TFS_PATH, "config"))]
+    )
 
     required_tf_protos = set()
     for filename in files:
-        with open(os.path.join(TFS_PATH, filename)) as f:
+        with open(filename) as f:
             for line in f:
                 line = line.strip()
                 if line.startswith("import \"tensorflow/"):
