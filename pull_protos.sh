@@ -6,15 +6,15 @@ TFS_VERSION=2.7.0
 TMP=tmp
 
 function main() {
-    target_path=`realpath $1`
+    target_path=$(realpath .)
+    rm -rf $TMP tensorflow tensorflow_serving
+    mkdir -p $TMP
 
-    rm -rf $TMP $target_path/tensorflow $target_path/tensorflow_serving
-    mkdir -p $TMP $target_path
+    fetchTFSApi $target_path
+    fetchTFProto $target_path
 
-    fetchTFSApi $target_path/
-    fetchTFProto $target_path/
-
-    find $target_path -type d -empty -delete
+    find ./tensorflow -type d -empty -delete
+    find ./tensorflow_serving -type d -empty -delete
 }
 
 function fetchTFSApi() {
@@ -45,4 +45,4 @@ function fetchTFProto() {
     popd
 }
 
-main $@
+main
