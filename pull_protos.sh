@@ -25,8 +25,8 @@ function fetchTFSApi() {
     unzip -q serving.zip
 
     mkdir -p $1/tensorflow_serving
-    rsync -r --include "*/" --exclude="internal/*" --include="*.proto" --exclude="*" serving-$TFS_VERSION/tensorflow_serving/apis/ $1/tensorflow_serving/apis/
-    rsync -r --include "*/" --exclude="internal/*" --include="*.proto" --exclude="*" serving-$TFS_VERSION/tensorflow_serving/config/ $1/tensorflow_serving/config/
+    rsync -r --include="*.proto" --exclude="*" serving-$TFS_VERSION/tensorflow_serving/apis/ $1/tensorflow_serving/apis/
+    rsync -r --include="*.proto" --exclude="*" serving-$TFS_VERSION/tensorflow_serving/config/ $1/tensorflow_serving/config/
 
     popd
 }
