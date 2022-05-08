@@ -6,7 +6,7 @@ import "tensorflow/core/framework/tensor.proto";
 import "tensorflow/core/framework/tensor_shape.proto";
 import "tensorflow/core/framework/types.proto";
 
-option go_package = "github.com/tensorflow/tensorflow/tensorflow/go/core/protobuf";
+option go_package = "github.com/tensorflow/tensorflow/tensorflow/go/core/protobuf/for_core_protos_go_proto";
 
 // `StructuredValue` represents a dynamically typed value representing various
 // data structures that are inspired by Python data structures typically used in
@@ -149,7 +149,7 @@ message TypeSpecProto {
   //  * If type_spec_class == REGISTERED_TYPE_SPEC, the TypeSpec class is
   //    the one registered under this name. For types registered outside
   //    core TensorFlow by an add-on library, that library must be loaded
-  //    before this value can be deserialized by StructureCoder.
+  //    before this value can be deserialized by nested_structure_coder.
   //  * If type_spec_class specifies a particular TypeSpec class, this field is
   //    redundant with the type_spec_class enum, and is only used for error
   //    reporting in older binaries that do not know the tupe_spec_class enum.

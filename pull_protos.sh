@@ -1,8 +1,8 @@
 #!/bin/bash
 set -ex
 
-TF_VERSION=2.7.0
-TFS_VERSION=2.7.0
+TF_VERSION=2.8.0
+TFS_VERSION=2.8.0
 TMP=tmp
 
 function main() {
