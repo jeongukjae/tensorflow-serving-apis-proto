@@ -15,7 +15,9 @@ proto_library(
     srcs = glob(["tensorflow/core/protobuf/**"]),
     deps = [
         ":tensorflow_core_framework_proto",
+        ":tsl_proto",
         "@com_google_protobuf//:any_proto",
+        "@com_google_protobuf//:wrappers_proto",
     ]
 )
 
@@ -28,6 +30,15 @@ proto_library(
 )
 
 proto_library(
+    name = "tsl_proto",
+    srcs = glob(["tsl/protobuf/**"]),
+    deps = [
+        "@com_google_protobuf//:any_proto",
+        "@com_google_protobuf//:wrappers_proto",
+    ],
+)
+
+proto_library(
     name = "tensorflow_serving_apis_proto",
     srcs = glob(["tensorflow_serving/apis/**"]),
     deps = [
@@ -35,6 +46,7 @@ proto_library(
         ":tensorflow_core_example_proto",
         ":tensorflow_core_protobuf_proto",
         ":tensorflow_serving_config_proto",
+        ":tsl_proto",
         "@com_google_protobuf//:any_proto",
         "@com_google_protobuf//:wrappers_proto",
     ]
