@@ -7,7 +7,7 @@ TMP=tmp
 
 function main() {
     target_path=$(realpath .)
-    rm -rf $TMP tensorflow tensorflow_serving tsl xla
+    rm -rf $TMP tensorflow tensorflow_serving tsl
     mkdir -p $TMP
 
     fetchTFSApi $target_path
