@@ -4,7 +4,7 @@ package tensorflow;
 
 import "google/protobuf/any.proto";
 
-option go_package = "github.com/tensorflow/tensorflow/tensorflow/go/core/protobuf/for_core_protos_go_proto";
+option go_package = "github.com/tensorflow/tensorflow/tensorflow/go/core/protobuf";
 
 // Represents a remote worker task, specified by job name and task id.
 message CoordinatedTask {

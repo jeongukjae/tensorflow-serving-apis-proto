@@ -5,7 +5,7 @@ package stream_executor.dnn;
 
 import "google/protobuf/wrappers.proto";
 
-option go_package = "github.com/google/tsl/tsl/go/stream_executor";
+option go_package = "github.com/google/tsl/tsl/go/protobuf";
 
 // Specifies the data type used by an operation.
 enum DataType {
