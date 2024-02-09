@@ -11,7 +11,7 @@ import "tensorflow/core/protobuf/struct.proto";
 import "tensorflow/core/protobuf/trackable_object_graph.proto";
 
 option cc_enable_arenas = true;
-option go_package = "github.com/tensorflow/tensorflow/tensorflow/go/core/protobuf/for_core_protos_go_proto";
+option go_package = "github.com/tensorflow/tensorflow/tensorflow/go/core/protobuf";
 
 // A SavedObjectGraph is part of object-based SavedModels in TF 2.0. It
 // describes the directed graph of Python objects (or equivalent in other
@@ -38,7 +38,8 @@ message SavedObject {
   // Objects which this object depends on: named edges in the dependency
   // graph.
   //
-  // Note: currently only valid if kind == "user_object" or "resource".
+  // Note: All kinds of SavedObject may have children, except
+  // "constant" and "captured_tensor".
   repeated TrackableObjectGraph.TrackableObject.ObjectReference children = 1;
 
   // Ordered list of dependencies that must be loaded before this object.

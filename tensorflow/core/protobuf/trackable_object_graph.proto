@@ -5,7 +5,7 @@ package tensorflow;
 import "google/protobuf/wrappers.proto";
 
 option cc_enable_arenas = true;
-option go_package = "github.com/tensorflow/tensorflow/tensorflow/go/core/protobuf/for_core_protos_go_proto";
+option go_package = "github.com/tensorflow/tensorflow/tensorflow/go/core/protobuf";
 
 // A TensorBundle addition which saves extra information about the objects which
 // own variables, allowing for more robust checkpoint loading into modified
@@ -33,10 +33,10 @@ message TrackableObjectGraph {
       string full_name = 2;
       // The generated name of the Tensor in the checkpoint.
       string checkpoint_key = 3;
-      // Whether checkpoints should be considered as matching even without this
-      // value restored. Used for non-critical values which don't affect the
-      // TensorFlow graph, such as layer configurations.
-      bool optional_restore = 4;
+      // Deprecated bool field for optional restore. This field has never been
+      // set to True.
+      reserved "optional_restore";
+      reserved 4;
     }
 
     message SlotVariableReference {
